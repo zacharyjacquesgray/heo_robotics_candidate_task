@@ -10,26 +10,24 @@ with open(file_path, "r") as json_file:
     data = json.load(json_file)
 
 # Relevant data initialisations for altitude data and its associated timestamp
-semi_major_axis_array = []
-eccentricity_array = []
-timestamps = []
+periapsis_array = []
+apoapsis_array = []
+timestamps_array = []
 
 # Extract relevant data to calculate altitude from ELSET json
 for item in data:
-    semi_major_axis_array.append(float(item["SEMIMAJOR_AXIS"]))
-    eccentricity_array.append(float(item["ECCENTRICITY"]))
-    timestamps.append(item["EPOCH"])
-
-earth_radius = 6371  # kilometres
+    periapsis_array.append(float(item["PERIAPSIS"]))
+    apoapsis_array.append(float(item["APOAPSIS"]))
+    timestamps_array.append(item["EPOCH"])
 
 # Calculate altitudes over the year
 altitude_array = []
-# Altitude = (semimajor_axis * (1 - eccentricity) - earth_radius)
-for semi_major_axis, eccentricity in zip(semi_major_axis_array, eccentricity_array):
-    altitude_array.append(semi_major_axis * (1 - eccentricity) - earth_radius)
+# Altitude = (semimajor_axis * (1 - apoapsis) - earth_radius)
+for periapsis, apoapsis in zip(periapsis_array, apoapsis_array):
+    altitude_array.append(0.5 * (periapsis + apoapsis))
 
-# Convert timestamps to datetime objects
-timestamps_datetime = [datetime.fromisoformat(ts) for ts in timestamps]
+# Convert timestamps_array to datetime objects
+timestamps_datetime = [datetime.fromisoformat(ts) for ts in timestamps_array]
 
 # Find the earliest and latest datetimes obtained
 earliest_timestamp = min(timestamps_datetime)
