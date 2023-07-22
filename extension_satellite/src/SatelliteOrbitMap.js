@@ -15,7 +15,7 @@ const mapOptions = {
 };
 
 const issIcon = {
-    url: "iss_icon.png", // url of the image
+    url: "./ISS_icon.png", // url of the image
     size: { width: 140, height: 110 }, // size of the image
     scaledSize: { width: 140, height: 110 }, // scaled size of the image
     anchor: { x: 70, y: 55 } // anchor point
@@ -80,13 +80,13 @@ const SatelliteOrbitMap = () => {
         return () => clearInterval(interval);
     }, []);
 
-
     return (
         <GoogleMap
             mapContainerStyle={mapContainerStyle}
             center={currentPosition}
             zoom={mapOptions.zoom}
             mapTypeId={mapOptions.mapTypeId}
+            apiKey="AIzaSyDv7AnGM289apyia1oS0WMNImjleismoc4"
         >
             {currentPosition && <Polyline path={orbitPath} options={{ strokeColor: 'yellow' }} />}
 
