@@ -86,7 +86,7 @@ const SatelliteOrbitMap = () => {
             center={currentPosition}
             zoom={mapOptions.zoom}
             mapTypeId={mapOptions.mapTypeId}
-            apiKey="AIzaSyDv7AnGM289apyia1oS0WMNImjleismoc4"
+            apiKey="GOOGLE_API_KEY_HERE"
         >
             {currentPosition && <Polyline path={orbitPath} options={{ strokeColor: 'yellow' }} />}
 

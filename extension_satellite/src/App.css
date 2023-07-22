@@ -2,13 +2,25 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 00vh;
+.header-container {
+  position: fixed;
+  bottom: 10%;
+  left: 7%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-start;
+  justify-content: flex-start;
+  color: whitesmoke;
+
 }
+
+h1 {
+  margin: 0;
+  font-size: xx-large;
+  font-family: 'Roboto Mono', monospace;}
+
+h2 {
+  margin-top: 4px;
+  font-size: medium;
+  font-family: 'Roboto Mono', monospace;}
